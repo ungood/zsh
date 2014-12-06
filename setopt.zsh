@@ -2,7 +2,8 @@ setopt alwaystoend
 setopt autonamedirs
 setopt autopushd
 setopt nobeep
-setopt completealiases
+# completealiases breaks rupa/z
+#setopt completealiases
 setopt extendedhistory
 setopt histexpiredupsfirst
 setopt histverify
