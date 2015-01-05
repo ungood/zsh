@@ -25,3 +25,8 @@ alias today='date -u +%F'
 function rgit() {
     find -L . -maxdepth 4 -type d -name \.git -print -exec git -C "{}/.." "$@" \;
 }
+
+function update-all() {
+    antigen selfupdate
+    antigen update
+}
