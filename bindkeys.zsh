@@ -11,6 +11,8 @@ bindkey "\eOd" emacs-backward-word
 bindkey "\e\e[C" forward-word
 bindkey "\e\e[D" backward-word
 bindkey "\e[Z" reverse-menu-complete # Shift+Tab
+bindkey "^X^_" redo
+
 # for rxvt
 bindkey "\e[7~" beginning-of-line # Home
 bindkey "\e[8~" end-of-line # End
