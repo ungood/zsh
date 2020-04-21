@@ -1,6 +1,5 @@
 setopt alwaystoend
 setopt autonamedirs
-setopt autopushd
 setopt nobeep
 # completealiases breaks rupa/z
 #setopt completealiases
