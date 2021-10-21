@@ -1,3 +1,2 @@
 path+=(~/bin)
-
 export path

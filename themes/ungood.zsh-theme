@@ -14,6 +14,21 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}D"
 
 DEFAULT_LINE_COLOR="%{$fg[white]%}"
 
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "%{$fg[red]%}($venv) "
+}
+
 function get_line() {
     local top_line=`print -P "%3~%m%?"`
     local top_line_size=${#top_line}
@@ -31,7 +46,7 @@ function build_prompt() {
 	reset="%{${reset_color}%}"
 
 	PS1='${p_pwd} $(get_line) ${host} ${retcode} ${reset}
-${vimode}${caret}${reset} '
+$(virtualenv_info)${vimode}${caret}${reset} '
 
 	if which git &> /dev/null; then
     	RPS1='$(git_prompt_status) $(git_prompt_short_sha)$(git_prompt_info)${reset}'
@@ -41,7 +56,7 @@ ${vimode}${caret}${reset} '
 
 	# Make the continuation prompt match the normal prompt.
 	# The reason the continuation prompt is displayed will be on the right.
-	PS2='${vimode}${caret}$fg[white] '
+	PS2='\$(virtualenv_info)${vimode}${caret}$fg[white] '
 	RPS2='$fg[red]%_${reset}'
 }
 
