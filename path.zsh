@@ -1,11 +1,14 @@
 function append_path_if() {
-    if [[ -d "$1" ]]; then
-        path+=("$1")
-        export path
+    if [[ -e "$1" && ! ":$PATH:" == *":$1:"* ]]; then
+        export PATH="$PATH:$1"
     fi
 }
 
-append_path_if "~/bin"
-append_path_if "~/.poetry/bin"
-append_path_if "~/.toolbox/bin"
+function print-path() {
+    echo $PATH | tr ":" "\n"
+}
+
+append_path_if "$HOME/bin"
+append_path_if "$HOME/.local/bin"
+append_path_if "$HOME/.toolbox/bin"
 append_path_if "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
