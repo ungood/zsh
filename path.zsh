@@ -10,5 +10,4 @@ function print-path() {
 
 append_path_if "$HOME/bin"
 append_path_if "$HOME/.local/bin"
-append_path_if "$HOME/.toolbox/bin"
 append_path_if "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
