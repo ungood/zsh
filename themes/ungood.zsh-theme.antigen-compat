@@ -57,7 +57,7 @@ $(virtualenv_info)${vimode}${caret}${reset} '
 
 	# Make the continuation prompt match the normal prompt.
 	# The reason the continuation prompt is displayed will be on the right.
-	PS2='$(virtualenv_info)${vimode}${caret}${reset} '
+	PS2='\$(virtualenv_info)${vimode}${caret}$fg[white] '
 	RPS2='$fg[red]%_${reset}'
 }
 
